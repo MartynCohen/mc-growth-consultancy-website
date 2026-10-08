@@ -5,10 +5,10 @@ MC Growth Consultancy Website
 
 Two standalone pages, added on the `jobs-and-businesses-for-sale` branch for review. Author: Martyn Cohen.
 
-- `jobs.html` is the flooring jobs board: browse and filter roles, apply, register a CV, post a job.
+- `jobs.html` is the flooring jobs board: browse and filter roles, apply, register a CV, post a job. It includes a job description builder that asks a few questions about the role and writes the job description from a library of flooring roles.
 - `businesses-for-sale.html` holds anonymised listings, buyer registration and a seller enquiry form.
 - `assets/listings-data.js` holds every job and business listing. It is the only file to edit when a listing changes, and the notes at the top explain how.
-- `assets/pages.css` and `assets/pages.js` are shared by both pages.
+- `assets/pages.css` and `assets/pages.js` are shared by both pages. The styling follows the live MC Growth Consultancy site: black and zinc bands, Montserrat headings, Inter body text, white icon badges and buttons.
 
 ### Before these go live
 

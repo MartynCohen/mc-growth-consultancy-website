@@ -1,4 +1,4 @@
-/* MC Growth Consultancy: listings for jobs.html and businesses-for-sale.html
+/* MC Growth Consultancy: settings and listings for jobs.html and businesses-for-sale.html
    Author: Martyn Cohen
 
    This is the only file to edit when a listing changes.
@@ -9,9 +9,12 @@
      Set showSamples to false to hide every placeholder in one go before the pages go live.
    - Business statuses: "Available", "Under offer", "Coming soon", "Sold".
    Keep business listings anonymous: region not town, turnover band not figure. */
-window.MCG = {
+window.PAGE_CFG = {
   mode: "live",
+  brand: "MC Growth Consultancy",
   email: "Martyn@MCGrowthConsultancy.co.uk",
+  privacy: "https://www.mcgrowthconsultancy.co.uk/",
+  formAttrs: ' data-netlify="true" netlify-honeypot="bot-field"',
   showSamples: true,
   jobs: [
     {

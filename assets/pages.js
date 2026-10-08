@@ -1,5 +1,5 @@
 /* MC Growth Consultancy: jobs board and businesses for sale pages. Author: Martyn Cohen
-   Listings are in listings-data.js. Forms post to Netlify Forms when the site is hosted on Netlify. */
+   Listings and settings are in listings-data.js. Forms post to Netlify Forms when the site is hosted on Netlify. */
 (function(){
 "use strict";
 var $=function(id){return document.getElementById(id)};
@@ -7,7 +7,8 @@ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&am
 function fmt(iso){return new Date(iso+"T12:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"short"})}
 function fill(sel,items){items.forEach(function(v){var o=document.createElement("option");o.textContent=v;sel.appendChild(o)})}
 
-var CFG=window.MCG||{}, LIVE=CFG.mode==="live";
+var CFG=window.PAGE_CFG||{}, LIVE=CFG.mode==="live";
+var BRAND=esc(CFG.brand||"us"), PRIVACY=CFG.privacy||"#";
 var REGIONS=["North East","North West","Yorkshire","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"];
 var CATS=["Fitting and installation","Estimating and surveying","Showroom and retail sales","Trade and field sales","Contracts and management","Warehouse and logistics","Apprenticeships","Office and support"];
 var TYPES=["Permanent","Self-employed or subcontract","Apprenticeship","Temporary or contract","Part time"];
@@ -52,7 +53,7 @@ function check(form,errId,msg){
   if(bad){err.textContent=msg;err.hidden=false;bad.focus();return false}
   err.hidden=true;return true;
 }
-/* Live pages post to Netlify Forms. The prototype, and a page opened straight from a folder, send nothing. */
+/* The prototype, and a page opened straight from a folder, send nothing. Live pages post each form to the site's form handler. */
 var sentHow="prototype";
 function send(form,name,extra){
   if(!LIVE){sentHow="prototype";return Promise.resolve()}
@@ -133,7 +134,7 @@ if(hasJobs){
     var j=find(id); if(!j)return;
     var foot=j.filled
       ? '<p class="small">This role was filled on '+fmt(j.filled)+'. Register your CV and we\'ll get in touch about similar jobs.</p><div class="dlg-foot"><button class="btn line" type="button" data-apply="">Register your CV</button></div>'
-      : '<div class="dlg-foot"><button class="btn" type="button" data-apply="'+esc(j.id)+'">Apply for this job</button><span class="small">Applications go to MC Growth Consultancy, who pass them to the employer.</span></div>';
+      : '<div class="dlg-foot"><button class="btn" type="button" data-apply="'+esc(j.id)+'">Apply for this job</button><span class="small">Applications go to '+BRAND+', who pass them to the employer.</span></div>';
     openDlg(j.title,j.who+" · "+j.town+", "+j.region,
       '<dl class="kv"><dt>Pay</dt><dd>'+esc(j.pay)+'</dd><dt>Contract</dt><dd>'+esc(j.type)+'</dd><dt>Hours</dt><dd>'+esc(j.hours||"")+'</dd><dt>Posted</dt><dd>'+fmt(j.posted)+'</dd><dt>Closes</dt><dd>'+(j.filled?'Filled '+fmt(j.filled):fmt(j.closes))+'</dd></dl>'+
       '<div><h4>The role</h4><p>'+esc(j.summary)+'</p></div>'+
@@ -144,7 +145,7 @@ if(hasJobs){
   var openApply=function(id){
     var j=find(id);
     openDlg(j?"Apply: "+j.title:"Register your CV", j?j.who+" · "+j.town+", "+j.region:"We'll get in touch when a flooring role fits",
-     '<form id="apply-form" name="job-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>'+HIDDEN("job-application")+'<div class="fgrid">'+
+     '<form id="apply-form" name="job-application" method="POST"'+(CFG.formAttrs||"")+' enctype="multipart/form-data" novalidate>'+HIDDEN("job-application")+'<div class="fgrid">'+
      '<div><label for="a-name">Full name *</label><input type="text" id="a-name" name="name" required autocomplete="name"></div>'+
      '<div><label for="a-phone">Mobile *</label><input type="tel" id="a-phone" name="phone" required autocomplete="tel"></div>'+
      '<div><label for="a-email">Email *</label><input type="email" id="a-email" name="email" required autocomplete="email"></div>'+
@@ -153,11 +154,11 @@ if(hasJobs){
      '<div class="full"><label for="a-note">'+(j?"Anything you'd like the employer to know":"What kind of role are you after?")+'</label><textarea id="a-note" name="message" rows="3"></textarea></div>'+
      (j?'<div class="full"><label class="check" for="a-share"><input type="checkbox" id="a-share" name="consent-share-with-employer" required> Share my details with the employer for this role. *</label></div>':'')+
      '<div class="full"><label class="check" for="a-pool"><input type="checkbox" id="a-pool" name="consent-keep-on-file"'+(j?'':' required')+'> Keep my details for up to 12 months and contact me about other flooring roles.'+(j?'':' *')+'</label></div>'+
-     '<p class="small full">We only use your details for recruitment. See our <a href="https://www.mcgrowthconsultancy.co.uk/" target="_blank" rel="noopener">privacy policy</a>.</p>'+
+     '<p class="small full">We only use your details for recruitment. See our <a href="'+esc(PRIVACY)+'" target="_blank" rel="noopener">privacy policy</a>.</p>'+
      '<p class="error full" id="apply-error" role="alert" hidden></p>'+
      '<div class="full"><button class="btn" type="submit">'+(j?"Send application":"Register my CV")+'</button></div>'+
      '</div></form>'+
-     '');
+     (CFG.notes?'<aside class="bn">Applications are stored with '+BRAND+' and forwarded to the employer. The two consents are recorded separately: sharing with this employer, and joining the candidate pool for 12 months. The privacy policy needs a recruitment section before launch.</aside>':''));
     $("apply-form").addEventListener("submit",function(e){
       e.preventDefault(); var form=this;
       if(!check(form,"apply-error","Fill in your name, mobile, email and town, and tick the consent box."))return;
@@ -179,7 +180,7 @@ if(hasJobs){
     e.preventDefault(); var form=this;
     if(!check(form,"post-error","Some required details are missing. Check the fields marked * and tick the posting terms."))return;
     var hasJd=$("p-jdfile").files.length>0||$("p-jdtext").value.trim().length>=150;
-    if(!hasJd&&!$("p-nojd").checked){var er=$("post-error");er.textContent="Add a job description. Upload a file, paste at least a few lines of it, or tick the box and we'll help you write one.";er.hidden=false;$("p-jdfile").focus();return}
+    if(!hasJd){var er=$("post-error");er.textContent="Add a job description. Upload a file, paste it in, or build one with the job description builder.";er.hidden=false;$("p-jdtext").focus();return}
     var who=$("p-anon").checked?"Employer name withheld":$("p-company").value;
     var prev=document.createElement("div");
     prev.innerHTML='<p class="small" style="margin-bottom:6px">How it will look once approved:</p><ul class="joblist" style="border:1px solid var(--line);background:var(--paper)"><li style="border:0"><div class="job'+($("p-featured").checked?' featured':'')+'" style="cursor:default">'+
@@ -187,10 +188,190 @@ if(hasJobs){
       '<span class="tags"><span class="pill">'+esc($("p-type").value)+'</span><span class="pill">'+esc($("p-cat").value)+'</span></span></span>'+
       '<span><span class="pay">'+esc($("p-pay").value)+'</span><span class="dates">Closes '+fmt($("p-close").value)+'</span></span></div></li></ul>';
     submit(form,"post-a-job","post-error",null,function(){
-      done(form,"Thanks, we've got it",hasJd?"We'll check your advert and publish it within one working day. You'll get an email when it's live."
-        :"We'll call you about the job description first, then get your advert live.",true,prev);
+      done(form,"Thanks, we've got it","We'll check your advert and publish it within one working day. You'll get an email when it's live.",true,prev);
     });
   });
+
+  /* ---------- job description builder ----------
+     Follows one template for every role: title, reporting line, location and hours, salary and
+     benefits, role purpose, key responsibilities, key measures, decision-making authority, skills and experience,
+     progression. Suggestions come from a flooring role library, so it works on any host with no running cost. */
+  var JD_LIB={};
+  JD_LIB[CATS[0]]={purpose:"To fit floorcoverings to a standard that needs no return visit, leaving every customer happy to recommend us.",
+    duties:["Fit carpet, vinyl, LVT and laminate to manufacturer guidance and British Standards (BS 5325 and BS 8203)","Assess and prepare subfloors, including moisture testing, smoothing compounds and plyboarding","Check the job sheet, plan and materials before leaving so each job is completed in one visit","Protect the customer's home or site and leave it clean and tidy","Report anything that affects the job, such as damp, uneven floors or short materials, before work starts","Look after the van, tools and stock, and return unused materials","Complete job sheets, photos and customer sign-off the same day","Follow site rules, risk assessments and safe working practices"],
+    kpis:["Jobs completed first time with no call-back","Customer reviews and complaints","Jobs completed within the time allowed","Material wastage against plan","Vehicle, tool and paperwork checks up to date"],
+    essential:["Time-served floor layer or NVQ Level 2 in floorcovering","Proven experience fitting carpet, vinyl and LVT","Confident preparing subfloors","Full UK driving licence","Polite, tidy and reliable in customers' homes","Able to work alone and manage your own time"],
+    desirable:["CSCS card","Experience with safety flooring, including cap and cove","Wood or design floor experience","Experience training a mate or apprentice"]};
+  JD_LIB[CATS[1]]={purpose:"To measure and price work accurately and quickly, so we win the right jobs at the right margin and they run without surprises.",
+    duties:["Carry out site and home surveys, recording measurements, subfloor condition and moisture readings","Take off quantities from drawings and specifications","Produce clear, accurate quotations and tender returns within agreed turnaround times","Plan materials to minimise waste and specify the right preparation","Follow up every quote and record the outcome","Hand over complete job packs to the fitters or contracts team","Keep price files, supplier costs and labour rates up to date","Flag risks and likely variations before the job starts"],
+    kpis:["Quote turnaround time","Quote conversion rate","Estimated against actual margin on completed jobs","Remedial costs caused by measuring or specification errors","Tender deadlines met"],
+    essential:["Experience estimating or surveying in flooring","Able to read drawings and take off accurately","Good knowledge of floorcoverings, subfloor preparation and fitting methods","Confident with estimating software and spreadsheets","Clear written and spoken communication","Full UK driving licence"],
+    desirable:["Experience with flooring take-off software","Background as a floor layer","Commercial tendering experience","CSCS card"]};
+  JD_LIB[CATS[2]]={purpose:"To turn showroom visitors and enquiries into delighted customers, giving honest advice and following every quote through to an order.",
+    duties:["Welcome every customer, understand what they need and recommend the right floor","Book home measures and, where required, carry them out","Prepare accurate quotes on the day and follow up every one","Hit agreed sales, margin and add-on targets, including underlay, accessories and fitting","Keep customers informed from order through to fitting","Keep the showroom, displays and samples clean, priced and up to date","Record enquiries, quotes and orders accurately on the system","Handle queries and complaints promptly and fairly"],
+    kpis:["Sales against target","Quote conversion rate","Average order value and margin","Underlay and accessory sales per order","Customer reviews"],
+    essential:["Sales experience in retail, ideally flooring or home interiors","Confident asking for the order and following up","Accurate with measurements, quotes and paperwork","Comfortable using a computer system for quotes and orders","Friendly, well presented and reliable","Able to work weekends on a rota"],
+    desirable:["Flooring product knowledge","Experience measuring in customers' homes","Full UK driving licence","Experience with social media or local marketing"]};
+  JD_LIB[CATS[3]]={purpose:"To grow profitable sales across the territory by looking after existing accounts properly and opening new ones.",
+    duties:["Manage and grow existing accounts through regular, planned visits","Find and open new accounts","Present ranges, place displays and samples, and train customers' staff","Agree and deliver account plans with key customers","Hit agreed sales, margin and new account targets","Keep the CRM up to date with visits, opportunities and forecasts","Resolve order, delivery and credit queries with the internal team","Report on competitor and market activity"],
+    kpis:["Sales and margin against target","New accounts opened and trading","Visits and calls completed against plan","Displays placed","Debtor days across the ledger"],
+    essential:["Field sales or account management experience, ideally in flooring or interiors","A track record of hitting targets","Organised territory planning and CRM use","Confident negotiating price and terms","Self-motivated and able to work alone","Full UK driving licence"],
+    desirable:["Existing relationships with flooring retailers or contractors in the area","Specification sales experience","Experience launching new ranges"]};
+  JD_LIB[CATS[4]]={purpose:"To deliver projects safely, on time and on margin, and to lead the team so the business runs well without the owner in every decision.",
+    duties:["Plan and programme labour, materials and plant across live projects","Manage fitters and subcontractors, including quality checks and site inspections","Own client relationships and attend site and progress meetings","Control costs, variations, applications for payment and final accounts","Produce and enforce RAMS and make sure every site works safely","Review estimated against actual margin on each job and act on the gaps","Recruit, train and develop the team","Report weekly on programme, margin and risks"],
+    kpis:["Projects completed on programme","Margin achieved against estimate","Snagging and remedial costs","Health and safety incidents and audit results","Client retention and repeat work"],
+    essential:["Experience managing flooring contracts, or a flooring branch or team","Strong planning and organisational skills","Commercial awareness of margin, variations and cash","Confident leading fitters and subcontractors","Good knowledge of floorcoverings and subfloor preparation","Full UK driving licence"],
+    desirable:["SMSTS or SSSTS","CSCS card","Experience with main contractors and housebuilders","Experience with job management software"]};
+  JD_LIB[CATS[5]]={purpose:"To get the right materials to the right job or customer, on time and undamaged.",
+    duties:["Receive, check and put away deliveries accurately","Pick, cut and label orders for fitters and customers","Load vehicles safely and deliver to sites and customers","Keep stock records accurate and report shortages or damage","Carry out regular stock counts","Keep the warehouse, racking and yard safe and tidy","Carry out daily vehicle and equipment checks","Help fitters and trade customers at the counter"],
+    kpis:["Orders picked and delivered on time","Picking and cutting errors","Stock count accuracy","Damages and write-offs","Vehicle and equipment checks completed"],
+    essential:["Warehouse or delivery experience","Full UK driving licence","Able to carry out a physical role, lifting and handling flooring safely with training","Accurate with paperwork and counting","Reliable timekeeping","Helpful with customers and colleagues"],
+    desirable:["Counterbalance, reach or side loader licence","Experience cutting carpet and vinyl","Flooring product knowledge","C1 category on your driving licence"]};
+  JD_LIB[CATS[6]]={purpose:"To learn the floor laying trade properly, on the job and at college, and become a qualified fitter.",
+    duties:["Assist qualified fitters on domestic and commercial jobs","Learn to prepare subfloors, including uplift, cleaning and smoothing compounds","Learn to fit carpet, vinyl and LVT under supervision","Load, unload and look after tools, materials and the van","Keep work areas safe, clean and tidy","Attend college or the training centre on block release and complete coursework on time","Keep your apprenticeship logbook up to date with your mentor","Follow instructions and safe working practices at all times"],
+    kpis:["Attendance and timekeeping","College attendance and coursework completed on time","Skills signed off in the logbook each quarter","Feedback from fitters and customers","Progress towards NVQ Level 2"],
+    essential:["Keen to learn a trade and willing to work hard","Reliable, punctual and able to follow instructions","Comfortable with physical work","Polite and presentable in customers' homes","Able to travel to the depot for an early start","Basic maths for measuring and working out areas"],
+    desirable:["Some experience of practical or site work","Provisional or full driving licence","Interested in a long-term career in flooring"]};
+  JD_LIB[CATS[7]]={purpose:"To keep customers informed, fitters organised and paperwork accurate so the business runs smoothly every day.",
+    duties:["Answer calls, emails and enquiries promptly and book surveys","Schedule fitters and keep the diary full and realistic","Order materials and chase deliveries so every job is ready to go","Keep customers updated on dates and any changes","Raise quotes and invoices and take payments accurately","Keep customer and job records up to date on the system","Chase outstanding quotes, balances and reviews","Support the owner or manager with reports and administration"],
+    kpis:["Enquiries answered and surveys booked within target","Diary utilisation for the fitting teams","Jobs delayed by missing materials","Outstanding balances and debtor days","Customer reviews received"],
+    essential:["Experience in an office, scheduling or customer service role","Organised and calm under pressure","Confident on the phone","Accurate with figures and data entry","Good working knowledge of email, spreadsheets and business software","Able to prioritise a busy workload"],
+    desirable:["Experience in flooring, construction or another trade business","Experience with accounting or job management software","Credit control experience"]};
+  var JD_BENEFITS=["Company van","Fuel card","Company car or car allowance","Bonus or commission","Workplace pension","Tools and uniform provided","Training and qualifications paid for","Staff discount","Phone and laptop or tablet"];
+  var JD_STEPS=["The basics","Pay and benefits","The role","The person","Your job description"];
+
+  var jdChecks=function(list,key,ticked){
+    return '<div class="jd-list">'+list.map(function(x,i){return '<label class="check"><input type="checkbox" data-list="'+key+'" value="'+esc(x)+'"'+(i<ticked?' checked':'')+'> <span>'+esc(x)+'</span></label>'}).join('')+'</div>';
+  };
+  var jdField=function(id,label,attrs,hint){return '<div><label for="'+id+'">'+label+(hint?'<span class="hint">'+hint+'</span>':'')+'</label><input type="text" id="'+id+'" '+(attrs||'')+'></div>'};
+  var jdArea=function(id,label,rows,hint,ph){return '<div class="full"><label for="'+id+'">'+label+(hint?'<span class="hint">'+hint+'</span>':'')+'</label><textarea id="'+id+'" rows="'+rows+'"'+(ph?' placeholder="'+esc(ph)+'"':'')+'></textarea></div>'};
+  var jdRoleParts=function(cat){
+    var L=JD_LIB[cat]||JD_LIB[CATS[0]];
+    $("jd-purpose").value=L.purpose;
+    $("jd-duties").innerHTML=jdChecks(L.duties,"duties",6);
+    $("jd-kpis").innerHTML=jdChecks(L.kpis,"kpis",3);
+    $("jd-essential").innerHTML=jdChecks(L.essential,"essential",4);
+    $("jd-desirable").innerHTML=jdChecks(L.desirable,"desirable",2);
+  };
+  var jdPicked=function(key,ownId){
+    var a=[].slice.call(document.querySelectorAll('#jd-form input[data-list="'+key+'"]:checked')).map(function(i){return i.value});
+    $(ownId).value.split(/\n+/).forEach(function(l){l=l.replace(/^[\s\-•*]+/,"").trim();if(l)a.push(l.charAt(0).toUpperCase()+l.slice(1))});
+    return a;
+  };
+  var jdText=function(){
+    var v=function(id){return $(id).value.trim()}, out=[], bullets=function(a){return a.map(function(x){return "- "+x}).join("\n")};
+    var cap=function(s){return s.charAt(0).toUpperCase()+s.slice(1)}, stop=function(s){s=cap(s);return /[.!?]$/.test(s)?s:s+"."};
+    var benefits=[].slice.call(document.querySelectorAll('#jd-form input[data-list="benefits"]:checked')).map(function(i){return i.value});
+    if(v("jd-benefits-own"))benefits.push(v("jd-benefits-own"));
+    benefits=benefits.map(function(x,i){return i?x.charAt(0).toLowerCase()+x.slice(1):cap(x)});
+    out.push("JOB DESCRIPTION","");
+    out.push("Job title: "+v("jd-title"));
+    if(v("jd-company"))out.push("Business: "+v("jd-company"));
+    out.push("Location and hours: "+stop(v("jd-town"))+(v("jd-hours")?" "+stop(v("jd-hours")):""));
+    if($("jd-type").value)out.push("Contract: "+$("jd-type").value);
+    if(v("jd-reports"))out.push("Reports to: "+v("jd-reports"));
+    if(v("jd-manages"))out.push("Responsible for: "+v("jd-manages"));
+    out.push("Salary: "+v("jd-pay"));
+    if(benefits.length)out.push("Benefits: "+benefits.join(", "));
+    if(v("jd-holiday"))out.push("Holiday: "+cap(v("jd-holiday")));
+    if(v("jd-about"))out.push("","ABOUT US",stop(v("jd-about")));
+    if(v("jd-purpose"))out.push("","ROLE PURPOSE",stop(v("jd-purpose")));
+    var d=jdPicked("duties","jd-duties-own"); if(d.length)out.push("","KEY RESPONSIBILITIES",bullets(d));
+    var k=jdPicked("kpis","jd-kpis-own"); if(k.length)out.push("","HOW SUCCESS IS MEASURED",bullets(k));
+    if(v("jd-decide")||v("jd-signoff")){out.push("","DECISION-MAKING AUTHORITY");if(v("jd-decide"))out.push("Can decide alone: "+stop(v("jd-decide")));if(v("jd-signoff"))out.push("Needs sign-off: "+stop(v("jd-signoff")))}
+    var e=jdPicked("essential","jd-essential-own"), w=jdPicked("desirable","jd-desirable-own");
+    if(e.length||w.length){out.push("","SKILLS AND EXPERIENCE");if(e.length)out.push("Essential",bullets(e));if(w.length)out.push("Desirable",bullets(w))}
+    if(v("jd-person"))out.push("","THE PERSON",stop(v("jd-person")));
+    if(v("jd-progress"))out.push("","PROGRESSION",stop(v("jd-progress")));
+    return out.join("\n");
+  };
+  var openJd=function(){
+    var opt=function(list,sel){return list.map(function(x){return '<option'+(x===sel?' selected':'')+'>'+esc(x)+'</option>'}).join('')};
+    var cat=$("p-cat").value||CATS[0];
+    openDlg("Build a job description","Answer a few questions and it writes itself. You can edit every word.",
+     '<form id="jd-form" novalidate>'+
+     '<ol class="jd-steps" id="jd-steps">'+JD_STEPS.map(function(s,i){return '<li'+(i===0?' class="on"':'')+'><span>'+(i+1)+'</span> '+s+'</li>'}).join('')+'</ol>'+
+     '<div class="jd-step" data-step="0"><div class="fgrid">'+
+       jdField("jd-title","Job title *",'required placeholder="e.g. Carpet and Vinyl Fitter"')+
+       '<div><label for="jd-cat">Type of role *</label><select id="jd-cat">'+opt(CATS,cat)+'</select></div>'+
+       jdField("jd-company","Business name")+
+       jdField("jd-town","Where is the role based? *",'required placeholder="Town or city"')+
+       '<div><label for="jd-type">Contract</label><select id="jd-type"><option value="">Choose one</option>'+opt(TYPES,$("p-type").value)+'</select></div>'+
+       jdField("jd-hours","Hours",'placeholder="e.g. Monday to Friday, 8am to 5pm"')+
+       jdField("jd-reports","Who will they report to?",'placeholder="e.g. Contracts Director"')+
+       jdField("jd-manages","Who reports to them?",'placeholder="Leave blank if nobody"')+
+       jdArea("jd-about","About the business",2,"A couple of lines on what you do and who for.","e.g. Family-run flooring retailer with two showrooms, fitting for homeowners and local builders since 1998.")+
+     '</div></div>'+
+     '<div class="jd-step" data-step="1" hidden><div class="fgrid">'+
+       '<div class="full">'+jdField("jd-pay","Salary or rate *",'required placeholder="e.g. £32,000 to £38,000"',"A band works better than a single figure.").replace(/^<div>|<\/div>$/g,'')+'</div>'+
+       '<div class="full"><span class="label">What comes with it?</span>'+jdChecks(JD_BENEFITS,"benefits",0)+'</div>'+
+       jdField("jd-holiday","Holiday",'value="28 days including bank holidays"')+
+       jdField("jd-benefits-own","Anything else?",'placeholder="e.g. early finish on Fridays"')+
+     '</div></div>'+
+     '<div class="jd-step" data-step="2" hidden><div class="fgrid">'+
+       jdArea("jd-purpose","Why does this role exist?",3,"We've suggested a starting point. Make it yours.")+
+       '<div class="full"><span class="label">What will they be doing day to day?<span class="hint">Tick what applies. Six to eight is plenty.</span></span><div id="jd-duties"></div></div>'+
+       jdArea("jd-duties-own","Add your own",2,"One per line.")+
+       '<div class="full"><span class="label">How will you know they\'re doing well?<span class="hint">The numbers that matter. Most job descriptions miss this.</span></span><div id="jd-kpis"></div></div>'+
+       jdArea("jd-kpis-own","Add your own measures",2,"One per line.")+
+       jdField("jd-decide","What can they decide alone?",'placeholder="e.g. day to day scheduling, goodwill up to £100"')+
+       jdField("jd-signoff","What needs your sign-off?",'placeholder="e.g. discounts below margin, spend over £500"')+
+     '</div></div>'+
+     '<div class="jd-step" data-step="3" hidden><div class="fgrid">'+
+       '<div class="full"><span class="label">What is essential?<span class="hint">Only what the job really needs.</span></span><div id="jd-essential"></div></div>'+
+       jdArea("jd-essential-own","Add your own",2,"One per line.")+
+       '<div class="full"><span class="label">What would be a bonus?</span><div id="jd-desirable"></div></div>'+
+       jdArea("jd-desirable-own","Add your own",2,"One per line.")+
+       jdArea("jd-person","What kind of person does well in your business?",2,"","e.g. Someone who takes pride in a tidy job and speaks up early when something isn't right.")+
+       jdArea("jd-progress","Where could this role lead?",2,"","e.g. Lead fitter within two years, with training paid for.")+
+     '</div></div>'+
+     '<div class="jd-step" data-step="4" hidden>'+
+       '<label for="jd-out">Your job description<span class="hint">Edit anything you like, then add it to your advert.</span></label><textarea id="jd-out" rows="18"></textarea>'+
+       '<p class="small" id="jd-copied" hidden>Copied.</p>'+
+     '</div>'+
+     '<p class="error" id="jd-error" role="alert" hidden></p>'+
+     '<div class="dlg-foot"><button class="btn line" type="button" id="jd-back" hidden>Back</button><button class="btn" type="button" id="jd-next">Next</button><button class="btn line" type="button" id="jd-copy" hidden>Copy</button></div>'+
+     '</form>');
+    $("jd-title").value=$("p-title").value; $("jd-company").value=$("p-company").value; $("jd-town").value=$("p-town").value; $("jd-pay").value=$("p-pay").value;
+    jdRoleParts(cat);
+    $("jd-cat").addEventListener("change",function(){jdRoleParts(this.value)});
+    var step=0, last=JD_STEPS.length-1;
+    var show=function(n){
+      step=n;
+      [].forEach.call(document.querySelectorAll("#jd-form .jd-step"),function(s){s.hidden=+s.getAttribute("data-step")!==n});
+      [].forEach.call($("jd-steps").children,function(li,i){li.className=i===n?"on":(i<n?"done":"")});
+      $("jd-back").hidden=n===0; $("jd-copy").hidden=n!==last; $("jd-error").hidden=true;
+      $("jd-next").textContent=n===last?"Use this job description":(n===last-1?"Write my job description":"Next");
+      dlg.scrollTop=0;
+    };
+    var need=function(msg,el){var e=$("jd-error");e.textContent=msg;e.hidden=false;if(el)el.focus();return false};
+    var valid=function(){
+      if(step===0){if(!$("jd-title").value.trim())return need("Add the job title.",$("jd-title"));if(!$("jd-town").value.trim())return need("Add where the role is based.",$("jd-town"))}
+      if(step===1&&!$("jd-pay").value.trim())return need("Add the salary or rate. A range is fine.",$("jd-pay"));
+      if(step===2&&jdPicked("duties","jd-duties-own").length<3)return need("Pick or add at least three things they'll be doing.");
+      return true;
+    };
+    $("jd-back").addEventListener("click",function(){show(step-1)});
+    $("jd-form").addEventListener("submit",function(e){e.preventDefault()});
+    $("jd-copy").addEventListener("click",function(){
+      var ta=$("jd-out"), ok=function(){$("jd-copied").hidden=false};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(ok,function(){ta.focus();ta.select()})}else{ta.focus();ta.select()}
+    });
+    $("jd-next").addEventListener("click",function(){
+      if(step<last){ if(!valid())return; if(step===last-1)$("jd-out").value=jdText(); show(step+1); return }
+      /* hand the result back to the advert form */
+      $("p-jdtext").value=$("jd-out").value;
+      $("p-title").value=$("jd-title").value; $("p-town").value=$("jd-town").value; $("p-pay").value=$("jd-pay").value; $("p-cat").value=$("jd-cat").value;
+      if($("jd-type").value)$("p-type").value=$("jd-type").value;
+      if($("jd-company").value&&!$("p-company").value)$("p-company").value=$("jd-company").value;
+      if(!$("p-summary").value.trim())$("p-summary").value=$("jd-purpose").value.trim();
+      dlg.close();
+      var note=$("jd-added"); if(note)note.hidden=false;
+      $("post-error").hidden=true;
+      $("p-jdtext").scrollIntoView({block:"center"}); $("p-jdtext").focus({preventScroll:true});
+    });
+  };
+  document.addEventListener("click",function(e){ if(e.target.closest("[data-jd]"))openJd() });
   renderJobs();
 }
 
@@ -245,3 +426,4 @@ if(hasSale){
   renderSales();
 }
 })();
+
