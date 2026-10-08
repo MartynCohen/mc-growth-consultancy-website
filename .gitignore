@@ -1,0 +1,4 @@
+# local preview build, made by: python3 build.py --preview
+preview/
+__pycache__/
+.DS_Store

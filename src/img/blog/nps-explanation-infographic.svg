@@ -1,0 +1,89 @@
+<svg width="700" height="320" viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="700" height="320" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="350" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#333333">
+    NET PROMOTER SCORE
+  </text>
+  
+  <!-- Scale container -->
+  <g transform="translate(75, 80)">
+    <!-- Scale background -->
+    <rect x="0" y="50" width="550" height="70" fill="#ffffff" stroke="#cccccc" stroke-width="2" rx="8"/>
+    
+    <!-- Scale numbers positioned correctly -->
+    <text x="25" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">0</text>
+    <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">1</text>
+    <text x="125" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">2</text>
+    <text x="175" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">3</text>
+    <text x="225" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">4</text>
+    <text x="275" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">5</text>
+    <text x="325" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">6</text>
+    <text x="375" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">7</text>
+    <text x="425" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">8</text>
+    <text x="475" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">9</text>
+    <text x="525" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333">10</text>
+    
+    <!-- Detractors section (0-6) -->
+    <rect x="0" y="50" width="350" height="70" fill="#dc3545" rx="8 0 0 8"/>
+    
+    <!-- Passives section (7-8) -->
+    <rect x="350" y="50" width="100" height="70" fill="#ffc107"/>
+    
+    <!-- Promoters section (9-10) -->
+    <rect x="450" y="50" width="100" height="70" fill="#28a745" rx="0 8 8 0"/>
+    
+    <!-- Emoji faces -->
+    <circle cx="175" cy="85" r="15" fill="white"/>
+    <circle cx="169" cy="79" r="2.5" fill="#dc3545"/>
+    <circle cx="181" cy="79" r="2.5" fill="#dc3545"/>
+    <path d="M168 93 Q175 88 182 93" stroke="#dc3545" stroke-width="2.5" fill="none"/>
+    
+    <circle cx="400" cy="85" r="15" fill="white"/>
+    <circle cx="394" cy="79" r="2.5" fill="#856404"/>
+    <circle cx="406" cy="79" r="2.5" fill="#856404"/>
+    <line x1="394" y1="93" x2="406" y2="93" stroke="#856404" stroke-width="2.5"/>
+    
+    <circle cx="500" cy="85" r="15" fill="white"/>
+    <circle cx="494" cy="79" r="2.5" fill="#28a745"/>
+    <circle cx="506" cy="79" r="2.5" fill="#28a745"/>
+    <path d="M494 93 Q500 98 506 93" stroke="#28a745" stroke-width="2.5" fill="none"/>
+    
+    <!-- Labels with better spacing -->
+    <text x="175" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333">
+      Detractors
+    </text>
+    <text x="175" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666666">
+      (0-6)
+    </text>
+    
+    <text x="400" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333">
+      Passives
+    </text>
+    <text x="400" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666666">
+      (7-8)
+    </text>
+    
+    <text x="500" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333">
+      Promoters
+    </text>
+    <text x="500" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666666">
+      (9-10)
+    </text>
+    
+    <!-- Divider lines -->
+    <line x1="350" y1="135" x2="350" y2="175" stroke="#666666" stroke-width="2"/>
+    <line x1="450" y1="135" x2="450" y2="175" stroke="#666666" stroke-width="2"/>
+  </g>
+  
+  <!-- Formula -->
+  <text x="350" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333333">
+    NPS = % Promoters - % Detractors
+  </text>
+  
+  <!-- Scale explanation -->
+  <text x="350" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666666">
+    Understanding the NPS scale: Detractors (0-6), Passives (7-8), and Promoters (9-10)
+  </text>
+</svg>

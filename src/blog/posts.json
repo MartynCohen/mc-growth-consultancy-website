@@ -1,0 +1,289 @@
+[
+ {
+  "slug": "blog-finders-fee-service",
+  "title": "Maximise Your Flooring Business Sale with Our Finders Fee Service",
+  "summary": "Expert business sale facilitation service leveraging 25+ years of flooring industry expertise and strategic buyer networks.",
+  "date": "2025-10-12",
+  "mins": 4,
+  "category": "Business sales",
+  "ownCta": false,
+  "image": "blog/selling-your-business.webp",
+  "thumb": "blog/selling-your-business-sm.webp",
+  "tags": [
+   "Business sale",
+   "Exit strategy",
+   "Finders fee",
+   "Business broker",
+   "Flooring industry",
+   "Enterprise value"
+  ]
+ },
+ {
+  "slug": "blog-protecting-flooring-business-compliance",
+  "title": "Protecting Your Flooring Business: New Compliance Guide and Fitters' Agreement Available",
+  "summary": "Comprehensive compliance package for flooring businesses including Independent Installer Relationships guide and Professional Fitters' Agreement template.",
+  "date": "2025-09-28",
+  "mins": 2,
+  "category": "Compliance",
+  "ownCta": false,
+  "image": "blog/compliance-protection-cover.webp",
+  "thumb": "blog/compliance-protection-cover-sm.webp",
+  "tags": [
+   "Compliance",
+   "HMRC",
+   "IR35",
+   "VAT",
+   "Fitters agreement",
+   "Employment law"
+  ]
+ },
+ {
+  "slug": "blog-flooring-show-2025",
+  "title": "Make the Most of The Flooring Show 2025: Your Essential Guide",
+  "summary": "Your complete guide to maximising your experience at The Flooring Show 2025 with networking opportunities and expert insights.",
+  "date": "2025-09-14",
+  "mins": 2,
+  "category": "News and events",
+  "ownCta": false,
+  "image": "blog/flooring-show.webp",
+  "thumb": "blog/flooring-show-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-local-partnerships",
+  "title": "Winning with Local Partnerships: Building Community Value as a Flooring Retailer",
+  "summary": "Building community value as a flooring retailer through strategic local partnerships and collaboration.",
+  "date": "2025-09-13",
+  "mins": 2,
+  "category": "Growth",
+  "ownCta": false,
+  "image": "blog/winning-with-local-partnerships.webp",
+  "thumb": "blog/winning-with-local-partnerships-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-coaching-success",
+  "title": "Coaching for Success: Unlocking People Potential in the Flooring Industry",
+  "summary": "Transform your flooring business through effective coaching and people development.",
+  "date": "2025-08-26",
+  "mins": 3,
+  "category": "Sales and people",
+  "ownCta": true,
+  "image": "blog/coaching-success-hero.svg",
+  "thumb": "blog/coaching-success-hero.svg",
+  "tags": []
+ },
+ {
+  "slug": "blog-customer-centricity",
+  "title": "Creating a Culture of Customer Centricity in Flooring",
+  "summary": "Build customer-focused businesses using NPS and proven strategies to turn customers into raving fans.",
+  "date": "2025-08-24",
+  "mins": 3,
+  "category": "Sales and people",
+  "ownCta": true,
+  "image": "blog/customer-centricity-hero.webp",
+  "thumb": "blog/customer-centricity-hero-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-hmrc-compliance",
+  "title": "Is Your Flooring Business Really HMRC Compliant?",
+  "summary": "Critical analysis of the United Carpets v HMRC ruling and what it means for your business.",
+  "date": "2025-08-14",
+  "mins": 2,
+  "category": "Compliance",
+  "ownCta": false,
+  "image": "blog/hmrc-compliance-social-media.webp",
+  "thumb": "blog/hmrc-compliance-social-media-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-sales-performance",
+  "title": "Driving and Managing Sales Performance: A Practical Guide",
+  "summary": "Expert strategies for maximising sales team performance through SMART objectives and coaching.",
+  "date": "2025-08-07",
+  "mins": 4,
+  "category": "Sales and people",
+  "ownCta": false,
+  "image": "blog/sales-performance-hero.svg",
+  "thumb": "blog/sales-performance-hero.svg",
+  "tags": [
+   "Sales Management",
+   "Performance Coaching",
+   "Leadership Development",
+   "Team Development"
+  ]
+ },
+ {
+  "slug": "blog-recruitment-success",
+  "title": "Unlocking Recruitment Success: People-Focused Strategies for Finding and Securing Top Talent",
+  "summary": "People-focused strategies for finding and securing top talent in the flooring industry.",
+  "date": "2025-08-03",
+  "mins": 3,
+  "category": "Recruitment",
+  "ownCta": false,
+  "image": "blog/recruitment-success-improved.svg",
+  "thumb": "blog/recruitment-success-improved.svg",
+  "tags": [
+   "Recruitment Strategy",
+   "Talent Acquisition",
+   "People Management",
+   "HR Consulting"
+  ]
+ },
+ {
+  "slug": "blog-home-improvement-retail",
+  "title": "Small Format Stores and Digital Integration: The Future of Home Improvement Retail",
+  "summary": "The future of home improvement retail with digital integration and omnichannel strategies.",
+  "date": "2025-07-27",
+  "mins": 2,
+  "category": "Market and trends",
+  "ownCta": false,
+  "image": "blog/home-improvement-retail.webp",
+  "thumb": "blog/home-improvement-retail-sm.webp",
+  "tags": [
+   "Retail Strategy",
+   "Digital Transformation",
+   "Customer Experience",
+   "Omnichannel Solutions"
+  ]
+ },
+ {
+  "slug": "blog-grenfell-regulations",
+  "title": "What the Post-Grenfell Regulations Mean for Contract Flooring Companies",
+  "summary": "Essential guide to building safety regulations and compliance for flooring companies.",
+  "date": "2025-07-26",
+  "mins": 3,
+  "category": "Compliance",
+  "ownCta": true,
+  "image": "blog/grenfeld.webp",
+  "thumb": "blog/grenfeld-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-retail-closures",
+  "title": "National Retail Closures in the Flooring Sector: Implications for Independent Businesses",
+  "summary": "Analysis of major retail closures and £300M+ market opportunities for independent retailers.",
+  "date": "2025-07-20",
+  "mins": 2,
+  "category": "Market and trends",
+  "ownCta": true,
+  "image": "blog/retailclosures.webp",
+  "thumb": "blog/retailclosures-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-sustainable-flooring",
+  "title": "Sustainable Flooring Trends 2025: Eco-Friendly Choices and Cost-Saving Tips",
+  "summary": "How eco-friendly flooring solutions are reshaping the industry and customer expectations.",
+  "date": "2025-07-18",
+  "mins": 2,
+  "category": "Market and trends",
+  "ownCta": false,
+  "image": "blog/sustainability.webp",
+  "thumb": "blog/sustainability-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-product-sourcing",
+  "title": "Mastering Product Sourcing and Securing the Best Deals",
+  "summary": "Maximise profit margins through smart sourcing strategies and supplier relationships.",
+  "date": "2025-07-15",
+  "mins": 2,
+  "category": "Growth",
+  "ownCta": true,
+  "image": "blog/productsourcing.webp",
+  "thumb": "blog/productsourcing-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-trade-shows",
+  "title": "Why Trade Shows and Exhibitions Are Essential for the Home Furnishings and Flooring Industry",
+  "summary": "Strategic guide to maximising ROI from flooring industry trade shows and networking events.",
+  "date": "2025-07-12",
+  "mins": 3,
+  "category": "News and events",
+  "ownCta": true,
+  "image": "blog/tradeshows.webp",
+  "thumb": "blog/tradeshows-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-fitter-attraction",
+  "title": "How MC Growth Consultancy Can Help You Attract the Best Self-Employed Fitters",
+  "summary": "Evidence-based recruitment strategies for finding and securing top flooring installers.",
+  "date": "2025-07-10",
+  "mins": 2,
+  "category": "Recruitment",
+  "ownCta": true,
+  "image": "blog/fitterattraction.webp",
+  "thumb": "blog/fitterattraction-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-furniture-retail",
+  "title": "The Future of Furniture Retail: Omnichannel, Digital, and Customer-Centric",
+  "summary": "Navigate industry disruption and capitalise on new opportunities in furniture retail.",
+  "date": "2025-07-08",
+  "mins": 2,
+  "category": "Market and trends",
+  "ownCta": false,
+  "image": "blog/creating-systems.webp",
+  "thumb": "blog/creating-systems-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-installer-relationships",
+  "title": "Navigating Third-Party Installer Relationships: Essential Advice for Retailers",
+  "summary": "Create lasting partnerships with flooring installers for consistent quality and reliability.",
+  "date": "2025-07-05",
+  "mins": 4,
+  "category": "Compliance",
+  "ownCta": true,
+  "image": "blog/self-employed-flooring-installer.webp",
+  "thumb": "blog/self-employed-flooring-installer-sm.webp",
+  "tags": [
+   "Installer Relationships",
+   "Legal Compliance",
+   "VAT",
+   "CIS",
+   "Employment Law"
+  ]
+ },
+ {
+  "slug": "blog-cockerill-meeting",
+  "title": "Supporting the Cockerill & Co Flooring Business Alliance Quarterly Strategy Meeting",
+  "summary": "Strategic partnership discussions and industry developments in the flooring sector.",
+  "date": "2025-07-03",
+  "mins": 2,
+  "category": "News and events",
+  "ownCta": false,
+  "image": "blog/cockerill-meeting-cover-grey.webp",
+  "thumb": "blog/cockerill-meeting-cover-grey-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-uk-flooring-podcast",
+  "title": "From Corporate To Consultancy: Martyn Cohen on The UK Flooring Podcast",
+  "summary": "Martyn Cohen discusses career reinvention and scaling flooring businesses on The UK Flooring Podcast.",
+  "date": "2025-06-29",
+  "mins": 2,
+  "category": "News and events",
+  "ownCta": false,
+  "image": "blog/uk-flooring-podcast.webp",
+  "thumb": "blog/uk-flooring-podcast-sm.webp",
+  "tags": []
+ },
+ {
+  "slug": "blog-welcome",
+  "title": "Welcome to the MC Growth Consultancy Blog",
+  "summary": "Introducing our mission to drive transformational change in the flooring industry.",
+  "date": "2025-06-15",
+  "mins": 2,
+  "category": "News and events",
+  "ownCta": false,
+  "image": "",
+  "thumb": "",
+  "tags": []
+ }
+]

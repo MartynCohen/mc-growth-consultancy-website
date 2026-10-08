@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.mcgrowthconsultancy.co.uk/sitemap.xml

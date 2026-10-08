@@ -1,0 +1,79 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="smart-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a2a2a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#smart-bg)"/>
+  
+  <!-- Title -->
+  <text x="300" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">SMART Objectives</text>
+  <text x="300" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#cccccc">Clear Goals Drive Performance</text>
+  
+  <!-- SMART Letters in circles -->
+  <g transform="translate(50, 100)">
+    <!-- S - Specific -->
+    <circle cx="50" cy="50" r="35" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <text x="50" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#000000">S</text>
+    <text x="50" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Specific</text>
+    <text x="50" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#cccccc">Clear &amp; defined</text>
+    
+    <!-- M - Measurable -->
+    <circle cx="160" cy="50" r="35" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <text x="160" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#000000">M</text>
+    <text x="160" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Measurable</text>
+    <text x="160" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#cccccc">Track progress</text>
+    
+    <!-- A - Achievable -->
+    <circle cx="270" cy="50" r="35" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <text x="270" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#000000">A</text>
+    <text x="270" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Achievable</text>
+    <text x="270" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#cccccc">Realistic goals</text>
+    
+    <!-- R - Relevant -->
+    <circle cx="380" cy="50" r="35" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <text x="380" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#000000">R</text>
+    <text x="380" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Relevant</text>
+    <text x="380" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#cccccc">Meaningful &amp; aligned</text>
+    
+    <!-- T - Time-bound -->
+    <circle cx="490" cy="50" r="35" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <text x="490" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#000000">T</text>
+    <text x="490" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Time-bound</text>
+    <text x="490" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#cccccc">Clear deadlines</text>
+  </g>
+  
+  <!-- Connecting arrows -->
+  <g stroke="#666666" stroke-width="2" fill="none">
+    <path d="M 130 150 L 140 150" marker-end="url(#arrowhead)"/>
+    <path d="M 240 150 L 250 150" marker-end="url(#arrowhead)"/>
+    <path d="M 350 150 L 360 150" marker-end="url(#arrowhead)"/>
+    <path d="M 460 150 L 470 150" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666666"/>
+    </marker>
+  </defs>
+  
+  <!-- Example box -->
+  <rect x="50" y="250" width="500" height="120" fill="#333333" stroke="#555555" stroke-width="1" rx="5"/>
+  <text x="300" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Example: Sales Target</text>
+  
+  <text x="70" y="300" font-family="Arial, sans-serif" font-size="12" fill="#cccccc">Specific:</text>
+  <text x="130" y="300" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Acquire 10 new technology sector clients</text>
+  
+  <text x="70" y="320" font-family="Arial, sans-serif" font-size="12" fill="#cccccc">Measurable:</text>
+  <text x="150" y="320" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Increase weekly calls from 30 to 45</text>
+  
+  <text x="70" y="340" font-family="Arial, sans-serif" font-size="12" fill="#cccccc">Achievable:</text>
+  <text x="150" y="340" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">8% revenue growth this quarter</text>
+  
+  <text x="70" y="360" font-family="Arial, sans-serif" font-size="12" fill="#cccccc">Time-bound:</text>
+  <text x="150" y="360" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Complete by end of August</text>
+</svg>

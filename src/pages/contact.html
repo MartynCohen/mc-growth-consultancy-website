@@ -1,0 +1,68 @@
+<!--
+title: Contact Martyn Cohen
+description: Call, email or book a free 30 minute call with Martyn Cohen at MC Growth Consultancy. Recruitment, business sales and growth support for UK flooring businesses.
+nav: contact
+main: page-contact
+-->
+<div class="hero page">
+  <div class="wrap">
+    <div class="copy">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's Talk</h1>
+      <p class="lede">Ring me, send a message or book a slot in my diary. The first conversation is free and you'll be speaking to me, not a call handler.</p>
+    </div>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="stack">
+        <h2>Get in Touch</h2>
+        <ul class="contact-list">
+          <li>{{icon:phone sm}}<div><strong>Phone</strong><a href="tel:{{phoneIntl}}">{{phone}}</a></div></li>
+          <li>{{icon:mail sm}}<div><strong>Email</strong><a href="mailto:{{email}}">{{email}}</a></div></li>
+          <li>{{icon:user sm}}<div><strong>LinkedIn</strong><a href="{{linkedin}}" target="_blank" rel="noopener">linkedin.com/in/martyncohen</a></div></li>
+          <li>{{icon:clock sm}}<div><strong>When</strong><span class="small">I'll usually reply the same working day.</span></div></li>
+        </ul>
+        <div>
+          <img class="qr" src="{{root}}assets/img/contact-qr.png" alt="QR code to save Martyn Cohen's contact details" width="168" height="168" loading="lazy">
+          <p class="small" style="margin-top:8px">Scan to save my details to your phone.</p>
+        </div>
+      </div>
+      <div class="formcard">
+        <h3>Send a Message</h3>
+        <p class="sub">Fields marked * are required.</p>
+        <form name="enquiry" method="POST" data-simple novalidate>
+          <input type="hidden" name="form-name" value="enquiry"><p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="fgrid">
+            <div><label for="c-name">Your name *</label><input type="text" id="c-name" name="name" required autocomplete="name"></div>
+            <div><label for="c-company">Company</label><input type="text" id="c-company" name="company" autocomplete="organization"></div>
+            <div><label for="c-email">Email *</label><input type="email" id="c-email" name="email" required autocomplete="email"></div>
+            <div><label for="c-phone">Phone</label><input type="tel" id="c-phone" name="phone" autocomplete="tel"></div>
+            <div class="full"><label for="c-about">What's it about?</label><select id="c-about" name="about"><option value="">Choose one</option><option>Recruitment</option><option>Selling my business</option><option>Buying a business</option><option>Growth and performance</option><option>Systems and AI</option><option>Jobs board</option><option>Something else</option></select></div>
+            <div class="full"><label for="c-msg">Message *</label><textarea id="c-msg" name="message" required></textarea></div>
+            <div class="full"><label class="check" for="c-ok"><input type="checkbox" id="c-ok" name="consent" required><span>I'm happy for Martyn to reply to this message. See the <a href="{{root}}privacy.html">privacy notice</a>. *</span></label></div>
+          </div>
+          <p class="error" hidden role="alert"></p>
+          <div class="dlg-foot" style="margin-top:20px"><button class="btn" type="submit">Send Message</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Book a Call</h2>
+      <p>Pick a 30 minute slot that suits you. It goes straight into my diary and you'll get a confirmation by email.</p>
+      <div class="cta" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+        <button class="btn" type="button" data-calendly="cal">Show Available Times</button>
+        <a class="btn line" href="{{calendly}}" target="_blank" rel="noopener">Open the Diary in a New Tab</a>
+      </div>
+      <p class="note">The booking diary is provided by Calendly and loads only when you ask for it.</p>
+    </div>
+    <div class="calendly narrow" id="cal"></div>
+  </div>
+</section>

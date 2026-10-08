@@ -1,0 +1,151 @@
+<!--
+title: Flooring Jobs Board
+description: Flooring jobs across the UK. Fitters, estimators, showroom sales and contracts roles. Free for employers to post, with a job description builder.
+nav: jobs
+main: page-jobs
+scripts: listings-data.js pages.js
+-->
+<div class="hero">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Flooring jobs board</p>
+        <h1>Flooring Jobs, Free to Post</h1>
+        <p class="lede">The jobs board built for the UK flooring trade. Fitters, estimators, showroom sales and contracts roles in one place, with a builder that writes the job description with you.</p>
+        <div class="cta">
+          <button class="btn" type="button" data-scroll="post-a-job">Post a Job</button>
+          <button class="btn line" type="button" data-scroll="browse-jobs">Browse Jobs</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="fact"><span class="icon sm"><svg><use href="#i-tag"/></svg></span><div><strong>No listing fee</strong><span>A standard advert is free for 30 days.</span></div></div>
+        <div class="fact"><span class="icon sm"><svg><use href="#i-shield"/></svg></span><div><strong>Checked before it goes live</strong><span>Every advert is read by someone who knows flooring.</span></div></div>
+        <div class="fact"><span class="icon sm"><svg><use href="#i-users"/></svg></span><div><strong>Applications handled for you</strong><span>Candidates apply through me and I pass them straight on.</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="browse-jobs" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Live Roles</h2>
+        <p>Find your next role in flooring. Every advert here comes with a proper job description.</p>
+      </div>
+
+      <form class="filters panel" id="job-filters" autocomplete="off">
+        <div class="kw"><label for="f-kw">Search</label><input type="search" id="f-kw" placeholder="Job title, town or keyword"></div>
+        <div><label for="f-cat">Role</label><select id="f-cat"><option value="">All roles</option></select></div>
+        <div><label for="f-region">Region</label><select id="f-region"><option value="">All regions</option></select></div>
+        <div><label for="f-type">Contract</label><select id="f-type"><option value="">Any</option></select></div>
+      </form>
+
+      <div class="listbar">
+        <p id="job-count" aria-live="polite"></p>
+        <label class="check" for="f-filled"><input type="checkbox" id="f-filled" checked> Show recently filled roles</label>
+      </div>
+      <ul class="joblist" id="job-list"></ul>
+
+      <div class="cvstrip panel">
+        <div>
+          <h3>Can't see the right job?</h3>
+          <p>Send me your CV once. When a flooring role comes up that fits, I'll get in touch.</p>
+        </div>
+        <button class="btn line" type="button" id="btn-cv">Register Your CV</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="post-a-job">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Post Your Job for Free</h2>
+        <p>Tell me about the role, add the job description and I'll do the rest. No job description yet? The builder writes one with you.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="icon sm">1</span><strong>Send the key details</strong><span>Title, location, pay and the job description. About five minutes.</span></li>
+        <li><span class="icon sm">2</span><strong>I check and publish</strong><span>I read every advert before it goes live and come back to you if anything's unclear.</span></li>
+        <li><span class="icon sm">3</span><strong>Applications come to you</strong><span>I collect them and forward each one within one working day.</span></li>
+      </ol>
+
+      <div class="formcard narrow">
+        <h3>Post a Job</h3>
+        <p class="sub">Free for a standard 30 day listing. Fields marked * are required.</p>
+        <form id="post-form" name="post-a-job" method="POST" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="form-name" value="post-a-job"><p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="fstack">
+            <fieldset class="fieldset">
+              <legend>About you</legend>
+              <div class="fgrid">
+                <div><label for="p-name">Your name *</label><input type="text" id="p-name" name="name" required autocomplete="name"></div>
+                <div><label for="p-company">Company *</label><input type="text" id="p-company" name="company" required autocomplete="organization"></div>
+                <div><label for="p-email">Email *</label><input type="email" id="p-email" name="email" required autocomplete="email"></div>
+                <div><label for="p-phone">Phone *</label><input type="tel" id="p-phone" name="phone" required autocomplete="tel"></div>
+                <div class="full"><label class="check" for="p-anon"><input type="checkbox" id="p-anon" name="keep-company-name-private"> Keep our company name off the advert</label></div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend>Key details</legend>
+              <div class="fgrid">
+                <div class="full"><label for="p-title">Job title *</label><input type="text" id="p-title" name="job-title" required placeholder="e.g. Carpet and Vinyl Fitter"></div>
+                <div><label for="p-cat">Role type *</label><select id="p-cat" name="role-type" required><option value="">Choose one</option></select></div>
+                <div><label for="p-type">Contract *</label><select id="p-type" name="contract" required><option value="">Choose one</option></select></div>
+                <div><label for="p-town">Town or city *</label><input type="text" id="p-town" name="town" required></div>
+                <div><label for="p-region">Region *</label><select id="p-region" name="region" required><option value="">Choose one</option></select></div>
+                <div><label for="p-pay">Salary or rate *<span class="hint">A range is fine. Adverts showing pay get more applicants.</span></label><input type="text" id="p-pay" name="salary-or-rate" required placeholder="e.g. £32,000 to £38,000 + van"></div>
+                <div><label for="p-close">Closing date *<span class="hint">Up to 30 days from today.</span></label><input type="date" id="p-close" name="closing-date" required></div>
+                <div class="full"><label for="p-summary">The role in a couple of sentences *</label><textarea id="p-summary" name="role-summary" required rows="3" placeholder="What the job is, who they'd work with, what a good week looks like."></textarea></div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend>Job description</legend>
+              <div class="fgrid">
+                <div class="full jd-cta"><div><strong>No job description?</strong><span class="hint">Answer a few questions and the builder writes one for you. It takes about five minutes.</span></div><button class="btn sm" type="button" data-jd>Build One Now</button></div>
+                <p class="small full" id="jd-added" hidden>Job description added from the builder. You can still edit it below.</p>
+                <div class="full"><label for="p-jdfile">Upload a job description<span class="hint">PDF or Word.</span></label><input type="file" id="p-jdfile" name="job-description-file" accept=".pdf,.doc,.docx"></div>
+                <div class="full"><label for="p-jdtext">Or paste it here</label><textarea id="p-jdtext" name="job-description-text" rows="5"></textarea></div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend>Optional</legend>
+              <div class="fgrid">
+                <div class="full"><label class="check" for="p-featured"><input type="checkbox" id="p-featured" name="featured-listing"> <span>Make it a featured listing, pinned to the top for 30 days (<span class="tbc">£XX + VAT</span>)</span></label></div>
+                <div class="full"><label class="check" for="p-terms"><input type="checkbox" id="p-terms" name="terms-accepted" required> I'm authorised to advertise this role and agree to the posting terms. *</label></div>
+              </div>
+            </fieldset>
+            <p class="error" id="post-error" role="alert" hidden></p>
+            <div><button class="btn" type="submit">Send for Approval</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="jobs-extras">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>More Ways I Can Help</h2>
+        <p>An advert is the easy part. These make the hire stick.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile">
+          <span class="icon"><svg><use href="#i-file"/></svg></span>
+          <h3>Job Description Builder</h3>
+          <p>Answer a few questions about the role and get a proper job description, free and yours to keep.</p>
+          <ul class="ticks"><li>Role purpose and responsibilities</li><li>How success is measured</li><li>Essential and desirable skills</li></ul>
+          <div><button class="btn line sm" type="button" data-jd>Open the Builder</button></div>
+        </div>
+        <div class="tile">
+          <span class="icon"><svg><use href="#i-star"/></svg></span>
+          <h3>Featured Listings</h3>
+          <p>Put your role in front of candidates first.</p>
+          <ul class="ticks"><li>Pinned to the top of the board for 30 days</li><li>Featured badge on the advert</li><li><span class="tbc">£XX + VAT</span></li></ul>
+        </div>
+        <div class="tile">
+          <span class="icon"><svg><use href="#i-floor"/></svg></span>
+          <h3>Bespoke, Targeted Recruitment</h3>
+          <p>Need fitters at scale, or a senior or confidential hire? I approach the right people directly across the trade.</p>
+          <ul class="ticks"><li>Large-scale installer recruitment</li><li>Vetting and quality assurance</li><li>Installer compliance guide and fitters' agreement</li></ul>
+          <div><a class="btn line sm" href="recruitment.html">How It Works</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
