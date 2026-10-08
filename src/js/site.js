@@ -39,6 +39,7 @@ document.addEventListener("click",function(e){
 document.addEventListener("click",function(e){
   var b=e.target.closest("[data-calendly]"); if(!b||!CFG.calendly)return;
   var box=document.getElementById(b.getAttribute("data-calendly")); if(!box||box.firstChild)return;
+  if(CFG.preview){var n=document.createElement("p"); n.className="note center"; n.textContent="Preview only: the booking diary appears here on the live site."; box.appendChild(n); b.hidden=true; return}
   var f=document.createElement("iframe"); f.title="Book a call with Martyn Cohen"; f.loading="lazy"; f.src=CFG.calendly+"?hide_gdpr_banner=1";
   box.appendChild(f); b.hidden=true; box.scrollIntoView({block:"nearest"});
 });

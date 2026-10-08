@@ -88,6 +88,7 @@ def layout(meta,body,path,preview=False):
     depth=path.count('/'); root='../'*depth
     if path=='404.html' and not preview: root='/'      # the not-found page can be served at any depth
     title=meta['title'] if meta.get('fulltitle') else meta['title']+' | MC Growth Consultancy'
+    if preview=='fragment': title='MC Growth Consultancy Website'      # the preview's own name where it is hosted
     pretty=re.sub(r'(^|/)index\.html$',r'\1',path); pretty=re.sub(r'\.html$','',pretty)
     canon=CFG['url']+'/'+pretty
     site_cfg={'email':CFG['email'],'calendly':CFG['calendly'],'analyticsId':'' if preview else CFG['analyticsId'],'preview':preview}
