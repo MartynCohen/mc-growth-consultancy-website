@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flooring Jobs Board | MC Growth Consultancy</title>
+<meta name="description" content="Flooring jobs across the UK. Fitters, estimators, showroom sales and contracts roles. Free for employers to post with a job description.">
+<meta name="author" content="Martyn Cohen">
+<link rel="icon" href="assets/mc-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="assets/pages.css">
+</head>
+<body>
+<div id="app">
+
+<header class="site on-ink">
+  <div class="wrap">
+    <a class="logo" href="https://www.mcgrowthconsultancy.co.uk/"><img src="assets/mc-logo.png" alt="" width="168" height="168"><span>Martyn Cohen<small>Growth Consultancy</small></span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="https://www.mcgrowthconsultancy.co.uk/">Home</a></li>
+        <li><a href="https://www.mcgrowthconsultancy.co.uk/#services">Services</a></li>
+        <li><a href="https://www.mcgrowthconsultancy.co.uk/blog">Blog</a></li>
+        <li><a href="jobs.html" aria-current="page">Jobs</a></li>
+        <li><a href="businesses-for-sale.html">Businesses for Sale</a></li>
+        <li><a href="https://www.mcgrowthconsultancy.co.uk/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="page-jobs">
+
+  <div class="hero on-ink">
+    <span class="amp" aria-hidden="true">MC</span>
+    <div class="wrap">
+      <p class="eyebrow">The flooring jobs board</p>
+      <h1>Flooring jobs.<br><span class="outline">Free to post.</span></h1>
+      <p class="lede">Fitters, estimators, showroom sales, contracts managers. If the job's in flooring, it belongs here. Posting costs nothing. All we ask for is a proper job description.</p>
+      <div class="cta">
+        <button class="btn gold" type="button" data-scroll="post-a-job">Post a job free</button>
+        <button class="btn line" type="button" data-scroll="browse-jobs">Browse jobs</button>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="wrap">
+        <ul>
+          <li><strong>No listing fee</strong><span>A standard advert is free for 30 days.</span></li>
+          <li><strong>Checked before it goes live</strong><span>Read by someone who knows flooring, usually live within one working day.</span></li>
+          <li><strong>Applications handled for you</strong><span>Candidates apply through us and we pass them straight on.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section id="browse-jobs">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Live roles</p>
+        <h2>Find your next flooring job</h2>
+      </div>
+
+      <form class="filters" id="job-filters" autocomplete="off">
+        <div class="kw"><label for="f-kw">Search</label><input type="search" id="f-kw" placeholder="Job title, town or keyword"></div>
+        <div><label for="f-cat">Role</label><select id="f-cat"><option value="">All roles</option></select></div>
+        <div><label for="f-region">Region</label><select id="f-region"><option value="">All regions</option></select></div>
+        <div><label for="f-type">Contract</label><select id="f-type"><option value="">Any</option></select></div>
+      </form>
+
+      <div class="listbar">
+        <p id="job-count" aria-live="polite"></p>
+        <label class="check" for="f-filled"><input type="checkbox" id="f-filled" checked> Show recently filled roles</label>
+      </div>
+      <ul class="joblist" id="job-list"></ul>
+
+      <div class="cvstrip">
+        <div>
+          <h3>Can't see the right job?</h3>
+          <p class="small" style="font-size:.94rem">Send us your CV once. When a flooring role comes up that fits, we'll get in touch.</p>
+        </div>
+        <button class="btn line" type="button" id="btn-cv">Register your CV</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="stone" id="post-a-job">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <p class="eyebrow">For employers</p>
+          <h2>Post your flooring job for free</h2>
+          <p class="lede">Tell us about the role, attach the job description and we'll do the rest.</p>
+        </div>
+        <ol class="steps">
+          <li><div><strong>Send us the job description and key details</strong><span>Title, location, pay and the JD itself. It takes about five minutes.</span></div></li>
+          <li><div><strong>We check it and publish it</strong><span>We read every advert before it goes live and come back to you if anything's unclear.</span></div></li>
+          <li><div><strong>Applications come to you through us</strong><span>We collect them and forward each one within one working day. When the role's filled, tell us and we close it.</span></div></li>
+        </ol>
+        <div class="callout">
+          <strong>Why we insist on a job description</strong>
+          <span class="small" style="font-size:.94rem">Vague adverts get vague applicants. A clear JD tells a good fitter or salesperson what the job is, what it pays and why it's worth a move.</span>
+        </div>
+      </div>
+
+      <div class="formcard">
+        <h3>Post a job</h3>
+        <p class="sub">Free for a standard 30 day listing. Fields marked * are required.</p>
+        <form id="post-form" name="post-a-job" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="form-name" value="post-a-job"><p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="fstack">
+            <fieldset class="fieldset">
+              <legend>About you</legend>
+              <div class="fgrid">
+                <div><label for="p-name">Your name *</label><input type="text" id="p-name" name="name" required autocomplete="name"></div>
+                <div><label for="p-company">Company *</label><input type="text" id="p-company" name="company" required autocomplete="organization"></div>
+                <div><label for="p-email">Email *</label><input type="email" id="p-email" name="email" required autocomplete="email"></div>
+                <div><label for="p-phone">Phone *</label><input type="tel" id="p-phone" name="phone" required autocomplete="tel"></div>
+                <div class="full"><label class="check" for="p-anon"><input type="checkbox" id="p-anon" name="keep-company-name-private"> Keep our company name off the advert</label></div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend>Key details</legend>
+              <div class="fgrid">
+                <div class="full"><label for="p-title">Job title *</label><input type="text" id="p-title" name="job-title" required placeholder="e.g. Carpet and Vinyl Fitter"></div>
+                <div><label for="p-cat">Role type *</label><select id="p-cat" name="role-type" required><option value="">Choose one</option></select></div>
+                <div><label for="p-type">Contract *</label><select id="p-type" name="contract" required><option value="">Choose one</option></select></div>
+                <div><label for="p-town">Town or city *</label><input type="text" id="p-town" name="town" required></div>
+                <div><label for="p-region">Region *</label><select id="p-region" name="region" required><option value="">Choose one</option></select></div>
+                <div><label for="p-pay">Salary or rate *<span class="hint">A range is fine. Adverts showing pay get more applicants.</span></label><input type="text" id="p-pay" name="salary-or-rate" required placeholder="e.g. £32,000 to £38,000 + van"></div>
+                <div><label for="p-close">Closing date *<span class="hint">Up to 30 days from today.</span></label><input type="date" id="p-close" name="closing-date" required></div>
+                <div class="full"><label for="p-summary">The role in a couple of sentences *</label><textarea id="p-summary" name="role-summary" required rows="3" placeholder="What the job is, who they'd work with, what a good week looks like."></textarea></div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend>Job description</legend>
+              <div class="fgrid">
+                <div class="full"><label for="p-jdfile">Upload the job description<span class="hint">PDF or Word.</span></label><input type="file" id="p-jdfile" name="job-description-file" accept=".pdf,.doc,.docx"></div>
+                <div class="full"><label for="p-jdtext">Or paste it here</label><textarea id="p-jdtext" name="job-description-text" rows="4"></textarea></div>
+                <div class="full"><label class="check" for="p-nojd"><input type="checkbox" id="p-nojd" name="needs-jd-writing-service"> I don't have a job description. Tell me about the writing service.</label></div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend>Optional</legend>
+              <div class="fgrid">
+                <div class="full"><label class="check" for="p-featured"><input type="checkbox" id="p-featured" name="featured-listing"> <span>Make it a featured listing, pinned to the top for 30 days (<span class="tbc">£XX + VAT</span>)</span></label></div>
+                <div class="full"><label class="check" for="p-terms"><input type="checkbox" id="p-terms" name="terms-accepted" required> I'm authorised to advertise this role and agree to the posting terms. *</label></div>
+              </div>
+            </fieldset>
+            <p class="error" id="post-error" role="alert" hidden></p>
+            <div><button class="btn" type="submit">Send for approval</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="jobs-extras">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">If you need more than an advert</p>
+        <h2>Help with the hard part of hiring</h2>
+      </div>
+      <ul class="extras">
+        <li><h3>No job description? We'll write one.</h3><p>Talk us through the role on a short call and we'll turn it into a job description you can use again and again. <span class="tbc">£XX + VAT</span>.</p></li>
+        <li><h3>Featured listings</h3><p>Pinned to the top of the board for 30 days so it's the first thing candidates see. <span class="tbc">£XX + VAT</span>.</p></li>
+        <li><h3>Taking on self-employed fitters?</h3><p>The Installer Compliance Guide and fitters' agreement help you set the relationship up properly from day one.</p></li>
+        <li><h3>Need us to find them?</h3><p>For senior, hard to fill or confidential roles, our recruitment service approaches people directly across the trade. <a href="https://www.mcgrowthconsultancy.co.uk/#contact">Talk to us</a>.</p></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="on-ink">
+  <div class="wrap">
+    <img src="assets/mc-logo.png" alt="MC Growth Consultancy" width="168" height="168">
+    <p>Growth, recruitment and business sale support for the UK flooring trade<br>07966 364616 · Martyn@MCGrowthConsultancy.co.uk</p>
+    <ul>
+      <li><a href="https://www.mcgrowthconsultancy.co.uk/">Privacy Policy</a></li>
+      <li>&copy; 2026 MC Growth Consultancy</li>
+    </ul>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-head">
+    <div><h3 id="dlg-title"></h3><p id="dlg-sub"></p></div>
+    <button class="dlg-close" type="button" id="dlg-close">Close</button>
+  </div>
+  <div class="dlg-body" id="dlg-body"></div>
+</dialog>
+<!-- Netlify only detects forms that exist in the page source. The application form is built by script, so this hidden copy declares it. -->
+<form name="job-application" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
+  <input name="bot-field"><input name="job"><input name="name"><input name="phone"><input name="email"><input name="town">
+  <input type="file" name="cv-file"><textarea name="message"></textarea>
+  <input type="checkbox" name="consent-share-with-employer"><input type="checkbox" name="consent-keep-on-file">
+</form>
+
+
+</div>
+<script src="assets/listings-data.js"></script>
+<script src="assets/pages.js"></script>
+</body>
+</html>

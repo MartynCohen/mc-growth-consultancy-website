@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flooring Businesses for Sale | MC Growth Consultancy</title>
+<meta name="description" content="Flooring retailers, contractors and distributors for sale across the UK, handled confidentially by a flooring specialist. Register as a buyer or ask about selling.">
+<meta name="author" content="Martyn Cohen">
+<link rel="icon" href="assets/mc-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="assets/pages.css">
+</head>
+<body>
+<div id="app">
+
+<header class="site on-ink">
+  <div class="wrap">
+    <a class="logo" href="https://www.mcgrowthconsultancy.co.uk/"><img src="assets/mc-logo.png" alt="" width="168" height="168"><span>Martyn Cohen<small>Growth Consultancy</small></span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="https://www.mcgrowthconsultancy.co.uk/">Home</a></li>
+        <li><a href="https://www.mcgrowthconsultancy.co.uk/#services">Services</a></li>
+        <li><a href="https://www.mcgrowthconsultancy.co.uk/blog">Blog</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="businesses-for-sale.html" aria-current="page">Businesses for Sale</a></li>
+        <li><a href="https://www.mcgrowthconsultancy.co.uk/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="page-sale">
+
+  <div class="hero on-ink">
+    <span class="amp" aria-hidden="true">MC</span>
+    <div class="wrap">
+      <p class="eyebrow">Buy or sell a flooring business</p>
+      <h1>Flooring businesses<br><span class="outline">for sale.</span></h1>
+      <p class="lede">Retailers, contractors and distributors across the UK, sold confidentially by flooring specialists, not general business brokers.</p>
+      <div class="cta">
+        <button class="btn gold" type="button" data-scroll="opportunities">See what's available</button>
+        <button class="btn line" type="button" data-scroll="selling">Thinking of selling?</button>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="wrap">
+        <ul>
+          <li><strong>Flooring only</strong><span>We know what drives value in this trade and what quietly destroys it.</span></li>
+          <li><strong>Anonymous until NDA</strong><span>No business is named until a buyer has signed a non-disclosure agreement.</span></li>
+          <li><strong>Serious buyers only</strong><span>Every enquiry is qualified before a sale brief is released.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section id="opportunities">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Current opportunities</p>
+        <h2>Businesses on the market</h2>
+        <p class="lede">Every listing is anonymous on purpose. Register your interest, sign the NDA and we'll send you the full Confidential Sale Brief. Coming soon means the business is being prepared for sale, so register now to hear first.</p>
+      </div>
+      <form class="salefilters" id="sale-filters" autocomplete="off">
+        <div><label for="s-type">Type of business</label><select id="s-type"><option value="">All types</option></select></div>
+        <div><label for="s-region">Region</label><select id="s-region"><option value="">All regions</option></select></div>
+        <div><label for="s-band">Turnover</label><select id="s-band"><option value="">Any size</option></select></div>
+      </form>
+      <div class="cards" id="sale-list"></div>
+      <p class="legal">Listings are summaries prepared from information supplied by the owners. They are not an offer or invitation to buy shares or assets, and the figures have not been independently verified. Buyers should take their own professional advice.</p>
+    </div>
+  </section>
+
+  <section class="stone" id="buying">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">For buyers</p>
+        <h2>How buying works</h2>
+      </div>
+      <ol class="process">
+        <li><strong>Register your interest</strong><span>Tell us who you are, what you're looking for and how you'd fund it.</span></li>
+        <li><strong>Sign the NDA</strong><span>Nothing confidential is released without one.</span></li>
+        <li><strong>Read the sale brief</strong><span>Financials first, then customers, team, premises and the reason for sale.</span></li>
+        <li><strong>Meet the owners</strong><span>An introductory meeting, held away from the business.</span></li>
+        <li><strong>Make an offer</strong><span>A written indicative offer, with structure and evidence of funding.</span></li>
+        <li><strong>Due diligence and completion</strong><span>Full access under exclusivity, through legals to completion.</span></li>
+      </ol>
+
+      <div class="split" style="margin-top:clamp(36px,6vw,64px)">
+        <div>
+          <h2 style="font-size:clamp(1.4rem,2.6vw,1.9rem)">Not everything is advertised</h2>
+          <p class="lede" style="margin-top:12px">Some owners ask us to approach buyers quietly instead of going public. Register what you're looking for and you'll hear about those businesses too.</p>
+          <div class="callout">
+            <strong>Looking to grow by acquisition?</strong>
+            <span class="small" style="font-size:.94rem">Tell us the areas and the type of business that would fit. We'll only come to you with something that matches.</span>
+          </div>
+        </div>
+        <div class="formcard">
+          <h3>Register as a buyer</h3>
+          <p class="sub">Two minutes. We'll call to understand what you're after before sending anything.</p>
+          <form id="buyer-form" name="buyer-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="buyer-registration"><p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+            <div class="fgrid">
+              <div><label for="b-name">Your name *</label><input type="text" id="b-name" name="name" required autocomplete="name"></div>
+              <div><label for="b-company">Company</label><input type="text" id="b-company" name="company" autocomplete="organization"></div>
+              <div><label for="b-email">Email *</label><input type="email" id="b-email" name="email" required autocomplete="email"></div>
+              <div><label for="b-phone">Phone *</label><input type="tel" id="b-phone" name="phone" required autocomplete="tel"></div>
+              <div class="full"><label for="b-listing">Listing you're interested in</label><select id="b-listing" name="listing-ref"><option value="">None in particular, keep me posted</option></select></div>
+              <div><label for="b-type">Type of business</label><select id="b-type" name="business-type"><option value="">Open to anything in flooring</option></select></div>
+              <div><label for="b-region">Where</label><select id="b-region" name="region"><option value="">Anywhere in the UK</option></select></div>
+              <div class="full"><label for="b-fund">How would you fund a purchase?</label><select id="b-fund" name="funding"><option value="">Not sure yet</option><option>Cash or existing company funds</option><option>Bank or asset finance</option><option>Investor backed</option></select></div>
+              <div class="full"><label class="check" for="b-nda"><input type="checkbox" id="b-nda" name="nda-acknowledged" required> I understand I'll need to sign an NDA before any confidential information is shared. *</label></div>
+              <p class="error full" id="buyer-error" role="alert" hidden></p>
+              <div class="full"><button class="btn" type="submit">Register my interest</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-ink" id="selling">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <p class="eyebrow">For owners</p>
+          <h2>Thinking of selling? Start with a conversation.</h2>
+          <p class="lede">Most owners sell a business once. There's no practice run, and the things that cost people money are rarely the things they were worried about.</p>
+        </div>
+        <ol class="steps">
+          <li><div><strong>A confidential conversation</strong><span>20 to 30 minutes, by phone or in person. No cost, no obligation and nothing goes anywhere.</span></div></li>
+          <li><div><strong>Assessment and valuation</strong><span>We go through your accounts, spend time on site and look at the business the way a buyer will. You get a written valuation with the reasoning shown and a ranked list of what's holding the value down. Fixed fee, agreed upfront.</span></div></li>
+          <li><div><strong>The sale</strong><span>An anonymised sale pack, buyer approaches, NDAs, negotiation and completion. Your job is to keep running the business. Ours is everything else.</span></div></li>
+        </ol>
+        <p class="quote">Not selling this year? Two or three years out is often the better time to talk.</p>
+        <p class="contact"><strong>Martyn Cohen, MC Growth Consultancy</strong>Martyn@MCGrowthConsultancy.co.uk<br>07966 364616</p>
+      </div>
+      <div class="formcard">
+        <h3>Ask for a confidential call</h3>
+        <p class="sub">Your details stay with us. Nobody in your business needs to know.</p>
+        <form id="seller-form" name="seller-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="seller-enquiry"><p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="fgrid">
+            <div><label for="v-name">Your name *</label><input type="text" id="v-name" name="name" required autocomplete="name"></div>
+            <div><label for="v-phone">Best number to call *</label><input type="tel" id="v-phone" name="phone" required autocomplete="tel"></div>
+            <div class="full"><label for="v-email">Email *<span class="hint">A personal address is fine if you'd rather keep this away from work.</span></label><input type="email" id="v-email" name="email" required autocomplete="email"></div>
+            <div><label for="v-type">Type of business</label><select id="v-type" name="business-type"><option value="">Choose one</option></select></div>
+            <div><label for="v-band">Turnover</label><select id="v-band" name="turnover"><option value="">Choose one</option></select></div>
+            <div class="full"><label for="v-when">When are you thinking of selling?</label><select id="v-when" name="timescale"><option>Just exploring</option><option>Within 12 months</option><option>One to three years</option><option>Longer term</option></select></div>
+            <div class="full"><label class="check" for="v-guide"><input type="checkbox" id="v-guide" name="send-valuation-guide" checked> Send me the free guide to how flooring businesses are valued</label></div>
+            <p class="error full" id="seller-error" role="alert" hidden></p>
+            <div class="full dlg-foot">
+              <button class="btn" type="submit">Request a call</button>
+              <span class="small">or call 07966 364616</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="confidentiality">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">How we protect a sale</p>
+        <h2>Confidential from the first call</h2>
+      </div>
+      <ul class="promises">
+        <li><h3>Anonymous until NDA</h3><p>No business is identifiable in anything we publish or send until a buyer has signed a non-disclosure agreement.</p></li>
+        <li><h3>Your sign-off, every time</h3><p>Nothing goes to market, and nothing goes to a buyer, without the owner's approval.</p></li>
+        <li><h3>No direct approaches</h3><p>Buyers agree not to contact staff, customers or suppliers. Every enquiry comes through us.</p></li>
+        <li><h3>Honest about timescales</h3><p>Six to twelve months from going to market to completion is normal. Anyone promising eight weeks is selling you something.</p></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="on-ink">
+  <div class="wrap">
+    <img src="assets/mc-logo.png" alt="MC Growth Consultancy" width="168" height="168">
+    <p>Growth, recruitment and business sale support for the UK flooring trade<br>07966 364616 · Martyn@MCGrowthConsultancy.co.uk</p>
+    <ul>
+      <li><a href="https://www.mcgrowthconsultancy.co.uk/">Privacy Policy</a></li>
+      <li>&copy; 2026 MC Growth Consultancy</li>
+    </ul>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-head">
+    <div><h3 id="dlg-title"></h3><p id="dlg-sub"></p></div>
+    <button class="dlg-close" type="button" id="dlg-close">Close</button>
+  </div>
+  <div class="dlg-body" id="dlg-body"></div>
+</dialog>
+
+</div>
+<script src="assets/listings-data.js"></script>
+<script src="assets/pages.js"></script>
+</body>
+</html>
